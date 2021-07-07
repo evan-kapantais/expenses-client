@@ -1,0 +1,471 @@
+@import 'colors.scss';
+
+$grid-gap: 1rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a,
+.text-button {
+  color: $medium-cyan;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &:hover,
+  &:focus {
+    color: $light-cyan;
+    text-decoration: underline;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 0 1rem;
+  transition: background 200ms ease;
+}
+
+.close-button {
+  font-size: 1.5rem;
+  transform: rotate(45deg);
+  user-select: none;
+  transition: all 200ms ease;
+
+  &:hover, &:focus {
+    transform: rotate(135deg) scale(1.3);
+  }
+}
+
+.close-button-dark {
+  color: $dark-blue;
+  
+  &:hover, &:focus {
+    color: $medium-cyan;
+  }
+}
+
+.close-button-light {
+  color: #fff;
+
+  &:hover, &:focus {
+    color: $light-cyan;
+  }
+}
+
+.block {
+  box-shadow: rgba(15, 15,15, 0.1) 0px 0px 0px 1px, rgba(15, 15,15, 0.1) 0px 2px 4px;
+  border-radius: 3px;
+  transition: all 200ms ease;
+}
+
+.block-with-label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.block-label {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: grey;
+  font-size: 0.85rem;
+}
+
+.block-small {
+  height: 100px;
+  padding: 0.5rem;
+}
+
+.block-medium {
+  height: 200px;
+  padding: 0.5rem;
+}
+
+.overview-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.primary-button {
+  background: $medium-cyan;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  border-radius: 3px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 200ms ease;
+
+  &:hover,
+  &:focus {
+    background: $light-cyan;
+  }
+}
+
+.primary-button-back {
+  background: rgb(72, 72, 72);
+
+  &:hover,
+  &:focus {
+    background: rgb(132, 132, 132);
+  }
+}
+
+// Dev controls
+#dev {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  text-align: right;
+  
+  button {
+    padding: 0.5rem 0;
+
+    &:hover {color: $medium-cyan;}
+  }
+}
+
+// Login page
+#login-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login,
+#register {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Home page
+.home-container {
+ display: grid;
+ grid-template-columns: 1fr 2fr auto;
+ gap: $grid-gap;
+ padding: 1rem;
+}
+
+.side-left {
+ > div {
+    margin-bottom: $grid-gap;
+  }
+}
+
+.side-center-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: $grid-gap;
+}
+
+// Transactions block
+#block-transactions {
+  width: 450px;
+  height: 500px;
+  overflow-y: hidden;
+  
+  ul {
+    height: 420px;
+    overflow-y: scroll; 
+    &::-webkit-scrollbar { width: 0px; }
+  }
+
+  header {
+    padding: 1rem;
+  }
+}
+
+.button-add {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  background: $medium-cyan;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &:hover,
+  &:focus {
+    background: $light-cyan;
+  }
+}
+
+// Transaction
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-left: 5px solid;
+
+  &.drinks {border-color: rgb(43, 193, 193);}
+  &.transportation {border-color: rgb(239, 189, 38);}
+  &.salary {border-color: rgb(63, 188, 63);}
+  &.purchases {border-color: rgb(221, 138, 244);}
+
+  > div:first-child {
+    display: flex;
+
+    > div:first-child {
+      margin-right: 1rem;
+    }
+  }
+
+  &:hover .transaction-overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+} 
+
+.transaction-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.transaction-date {
+  color: grey;
+  font-size: 0.85rem;
+}
+
+.income,
+.expense {
+  font-weight: 600;
+}
+
+.income {
+  color: $primary-green;
+}
+
+.expense {
+  color: $primary-red;
+}
+
+.transaction-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $dark-blue;
+  opacity: 0;
+  pointer-events: none;
+
+  button {
+    width: 24px;
+    height: 24px;
+    margin: 0 0.5rem;
+
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// Menu
+#menu {
+  margin-top: 116px;
+  height: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  
+  > button {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    white-space: nowrap;
+    margin: 1rem 0;
+    
+    &:hover p {
+      opacity: 1;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+    }
+
+    p {
+      opacity: 0;
+      transition: all 300ms ease;
+    }
+  }
+}
+
+// New month
+.new-month-container {
+  display: flex;
+  min-height: 585px;
+}
+
+.new-month-form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.new-month-form > header,
+.new-month-form > main,
+.new-month-form > footer {
+  padding: 2rem;
+}
+
+.new-month-form > header,
+#new-month-overview > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// New month overview
+#new-month-overview {
+  min-width: 500px;
+  padding: 2rem;
+  background: $dark-blue;
+  color: $cream;
+}
+
+#new-month-side-overview {
+  min-width: 350px;
+  padding: 2rem;
+  background: $dark-blue;
+  color: $cream;
+
+  @media (max-width: 750px) {
+    min-width: unset;
+    padding: 2rem;
+  }
+}
+
+.overview-block:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.overview-heading {
+  margin-bottom: 0.8rem;
+}
+
+.overview-p,
+.row {
+  margin-bottom: 0.8rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-block {
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  transition: all 300ms ease;
+  
+  &:hover,
+  &:focus {
+    background: $whitish-cyan;
+    color: $dark-blue;
+    padding: 0.5rem;
+  }
+
+  &:hover > .edit-block-button {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.edit-block-button {
+  float: right;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 400ms ease-in-out;
+}
+
+.expense-row,
+.delete-expense-button {
+  transition: all 200ms ease;
+}
+
+.delete-expense-button {
+  color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  opacity: 0;
+  color: $primary-red;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.expense-row:hover {
+  padding-left: 1.5rem;
+
+  .delete-expense-button {
+    opacity: 1;
+  }
+}

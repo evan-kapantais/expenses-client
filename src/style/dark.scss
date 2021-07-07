@@ -1,0 +1,35 @@
+@import 'colors.scss';
+
+.App-dark {
+  background: $dark-cyan;
+  color: $cream;
+
+  .close-button {
+    color: $cream;
+  }
+
+  input {
+    color: $cream;
+
+    &:focus {
+      border-color: $cream;
+    }
+  }
+
+  .block {
+    background: #0a2a3b;
+    color: $cream;
+  }
+
+  .block-label {
+    color: $light-cream;
+  }
+
+  .transaction-date {
+    color: $light-cream;
+  }
+
+  .transaction-overlay {
+    background: $cream;
+  }
+}

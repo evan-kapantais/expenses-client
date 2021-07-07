@@ -1,0 +1,43 @@
+#alt-register {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+}
+
+#register-main {
+  padding: 1rem;
+  width: 350px;
+  min-height: 450px;
+}
+
+#register-left .block,
+#register-right .block {
+  margin-bottom: 1rem;
+}
+
+.block-tiny {
+  height: 60px;
+  padding: 0.5rem;
+}
+
+.block-medium {
+  min-height: 150px;
+}
+
+#register-summary {
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  section {
+    margin-bottom: 1rem;
+
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
